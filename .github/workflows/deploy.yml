@@ -44,3 +44,8 @@ jobs:
         with:
           name: ReactWebBuild
           path: build/
+
+      - name: Run SonarQube Scanner
+        run: npx sonar-scanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
