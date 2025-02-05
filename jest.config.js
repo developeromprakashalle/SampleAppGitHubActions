@@ -3,7 +3,11 @@ export default {
   transform: {
     "^.+\\.jsx?$": "babel-jest",
   },
-  collectCoverageFrom: ["src/**/*.{ts|tsx|js|jsx}", "!src/**/*.d.ts"],
+  collectCoverageFrom: ["src/**/*.jsx", "!src/**/*.d.ts"],
+  collectCoverage: true,
+  clearMocks: true,
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "lcov"],
   moduleNameMapper: {
     "\\.(css|scss)$": "identity-obj-proxy",
   },
