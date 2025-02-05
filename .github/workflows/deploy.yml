@@ -34,7 +34,7 @@ jobs:
         run: npm run lint
 
       - name: Run Tests
-        run: npm test -- --watch=false
+        run: npm test -- --coverage
 
       - name: Build React App
         run: npm run build
