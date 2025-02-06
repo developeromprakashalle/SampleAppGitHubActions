@@ -36,6 +36,11 @@ jobs:
       - name: Run Tests
         run: npm test --coverage --collectCoverageFrom="src/**/*.jsx"
 
+      - name: Run SonarQube Scanner
+        run: npx sonar-scanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
       - name: Build React App
         run: npm run build
 
@@ -43,9 +48,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ReactWebBuild
-          path: build/
-
-      - name: Run SonarQube Scanner
-        run: npx sonar-scanner
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          path: dist/
